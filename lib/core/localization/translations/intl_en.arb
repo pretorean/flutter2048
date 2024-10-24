@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "appTitle": "2048",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "startGame": "Start {boardSize}",
+  "@startGame": {
+    "description": "Start game with selected board size",
+    "placeholders": {
+      "boardSize": {
+        "type": "String"
+      }
+    }
+  }
+}

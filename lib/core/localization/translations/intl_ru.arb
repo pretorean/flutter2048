@@ -1,0 +1,13 @@
+{
+  "@@locale": "ru",
+  "appTitle": "2048",
+  "startGame": "Запуск {boardSize}",
+  "@startGame": {
+    "description": "Запуск игры с выбранным размером поля",
+    "placeholders": {
+      "boardSize": {
+        "type": "String"
+      }
+    }
+  }
+}
