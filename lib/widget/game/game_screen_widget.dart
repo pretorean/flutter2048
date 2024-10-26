@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter2048/bloc/game/game_bloc.dart';
 import 'package:flutter2048/core/dependency/dependencies_scope.dart';
 import 'package:flutter2048/widget/game/base_game_widget.dart';
+import 'package:flutter2048/widget/game/board_cell.dart';
 
 class GameScreenWidget extends StatefulWidget {
   const GameScreenWidget({super.key});
@@ -19,6 +20,21 @@ class _GameScreenWidgetState extends State<GameScreenWidget> {
       onClose: () {
         gameBlock.add(GameStopEvent());
         Navigator.pop(context);
+      },
+      boardWidgetBuilder: (context, state) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: state.board.array
+              .map(
+                (row) => Expanded(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: row.map((e) => Expanded(child: BoardCell(value: e))).toList(),
+                  ),
+                ),
+              )
+              .toList(),
+        );
       },
     );
   }

@@ -9,11 +9,13 @@ sealed class GameState extends Equatable {
 
 class GameEmptyState extends GameState {}
 
-class GameNextTurn extends GameState {
-  final BoardSize boardSize;
+class GameNextTurnState extends GameState {
+  final Board board;
 
-  const GameNextTurn({required this.boardSize});
+  const GameNextTurnState({
+    required this.board,
+  });
 
   @override
-  List<Object> get props => [boardSize];
+  List<Object> get props => [board];
 }

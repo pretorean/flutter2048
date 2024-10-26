@@ -18,9 +18,14 @@ dependencies:
 
   cupertino_icons: ^1.0.8
 
-  bloc: ^8.1.4
   equatable: ^2.0.5
+  clock: ^1.1.1
+
+  bloc: ^8.1.4
   flutter_bloc: ^8.1.6
+  bloc_concurrency: ^0.2.5
+
+  stack_trace: ^1.11.1
 
 dev_dependencies:
   flutter_test:
