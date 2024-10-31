@@ -4,7 +4,8 @@ enum BoardSize {
   square_5x5,
   square_6x6,
   square_7x7,
-  square_8x8;
+  square_8x8,
+  custom;
 
   int get width => switch (this) {
         BoardSize.square_3x3 => 3,
@@ -13,6 +14,7 @@ enum BoardSize {
         BoardSize.square_6x6 => 6,
         BoardSize.square_7x7 => 7,
         BoardSize.square_8x8 => 8,
+        BoardSize.custom => 0,
       };
 
   int get height => switch (this) {
@@ -22,5 +24,6 @@ enum BoardSize {
         BoardSize.square_6x6 => 6,
         BoardSize.square_7x7 => 7,
         BoardSize.square_8x8 => 8,
+        BoardSize.custom => 0,
       };
 }

@@ -8,5 +8,6 @@ extension BoardSizeExtension on BoardSize {
         BoardSize.square_6x6 => '6x6',
         BoardSize.square_7x7 => '7x7',
         BoardSize.square_8x8 => '8x8',
+        BoardSize.custom => 'Custom',
       };
 }

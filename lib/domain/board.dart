@@ -7,10 +7,27 @@ typedef BoardArray = List<List<int>>;
 class Board {
   final BoardSize size;
   final BoardArray array;
+  final int maxValue;
 
-  Board(this.size, BoardArray array) : array = copyArray(array);
+  Board(this.size, BoardArray array, this.maxValue) : array = copyArray(array);
 
-  Board.create({required this.size}) : array = seedArray(_createArray(size));
+  Board.create({required this.size})
+      : array = seedArray(_createArray(size)),
+        maxValue = 2;
+
+  Board.fake()
+      : size = BoardSize.square_8x8,
+        maxValue = pow(2, 16).toInt(),
+        array = [
+          List.generate(8, (index) => pow(2, index * 2 + 1).toInt()).toList(),
+          List.generate(8, (index) => pow(2, index * 2 + 2).toInt()).toList(),
+          List.generate(8, (index) => pow(2, index * 2 + 3).toInt()).toList(),
+          List.generate(8, (index) => pow(2, index * 2 + 4).toInt()).toList(),
+          List.generate(8, (index) => pow(2, index * 2 + 5).toInt()).toList(),
+          List.generate(8, (index) => pow(2, index * 2 + 6).toInt()).toList(),
+          List.generate(8, (index) => pow(2, index * 2 + 7).toInt()).toList(),
+          List.generate(8, (index) => pow(2, index * 2 + 8).toInt()).toList(),
+        ];
 
   static BoardArray _createArray(BoardSize size) => List.generate(
         size.height,
@@ -43,12 +60,12 @@ class Board {
       return array;
     }
 
-    for (final index in [1, 2]) {
+    for (final adderValue in [2, 4, 8]) {
       final value = random.nextInt(freeSpaces.length);
       final position = freeSpaces.elementAt(value);
 
       assert(array[position.y][position.x] == 0, 'seed non zero value');
-      array[position.y][position.x] = 2;
+      array[position.y][position.x] = adderValue;
       freeSpaces.remove(position);
     }
     return array;
